@@ -1,0 +1,6 @@
+<?xml version="1.0"?> 
+<cross-domain-policy> 
+    <allow-access-from domain="*192.168.1.34" /> 
+    <allow-access-from domain="192.168.1.212" /> 
+    <allow-access-from domain="http://cache.utovr.com" /> 
+</cross-domain-policy>
