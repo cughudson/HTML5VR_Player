@@ -1,0 +1,401 @@
+/**
+ * @Hudson
+ * 11-07-2016 XIXIANG BAOAN SHENZHEN CITY GUANGDONG PROVINCE CHINA
+ * CODE AT WETHINKVR CO.LTD
+ *
+ * FOR VR PLAYER UI
+ * CANNO'T MODIFY THE FILE 
+ * 
+ */
+body{
+  margin: 0;
+  padding: 0;
+  height:2000px;
+}
+/*for video player*/
+#video-container,
+#toolbar,
+.play-btn,
+.orientation-btn,
+.dbscreen-btn,
+.fullscreen-btn,
+.video-time{
+  user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -o-user-select:none;
+  -ms-user-select:none;
+  margin:0;
+  padding:0;
+}
+#video-container{
+  position: relative;
+  /* cursor: default; */
+  overflow: hidden;
+}
+#video-container canvas{
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  cursor: default;
+ }
+ .logo{
+   position:absolute;
+   width:140px;
+   height:50px;
+   left:30px;
+   top:30px;
+ }
+ .logo img{
+   height:60%;
+ }
+/*toolbar*/
+#toolbar{
+  position:absolute;
+  width:100%;
+  height:56px;
+  bottom:0;
+  background: rgba(0,0,0,.5);
+  min-width: 900px;
+  z-index: 100000;
+}
+.play-btn,
+.orientation-btn,
+.dbscreen-btn,
+.fullscreen-btn{
+  top:5px;
+  width: 45px;
+  height:45px;
+}
+.orientation-btn, 
+.dbscreen-btn, 
+.fullscreen-btn{
+  margin: 0 10px;
+  float:right;
+  position: relative;
+}
+.orientation-btn:hover,
+.dbscreen-btn:hover,
+.fullscreen-btn:hover,
+.play-btn:hover,
+.sound-btn:hover{
+  cursor:pointer;
+}
+
+.progressbar{
+  position: absolute;
+  display: flex;
+  /* display: inline-block; */
+  align-items: center;
+  height: 100%;
+  right: 210px;
+  left: 65px;
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  border-right: 1px solid rgba(251, 118, 118, 0.5);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.progress{
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background: #ea504a;
+  background-repeat:repeat-x;
+  background-size: contain;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  top: 0;
+}
+.play-forward{
+  position:absolute;
+  display:inline-block;
+  width: 10px;
+  background: url("icon/play-forward.svg");
+  top: 0;
+  left: -5px;
+  background-position: center center;
+  height: 100%;
+  /* background:#fff; */
+  /* border-radius: 7px; */
+  cursor: w-resize;
+}
+
+.buffer{
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  background: rgb(247, 145, 145);
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.play-btn{
+  position: relative;
+  display: inline-block;
+  left: 8px;
+  float: left;
+  background: url("icon/play.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+.play{
+  background: url("icon/pause.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.showtime{
+  margin: 0 15px;
+  float: right;
+  top: 20px;
+  position: absolute;
+  color:#fff;
+  font-size: 15px;
+  text-align: left;
+  font-weight: 400;
+  right: 0;
+}
+.showtime, .video-time{
+  font-family: helvetica,-webkit-pictograph;
+  color: rgb(255, 255, 255);
+} 
+
+.orientation-btn{
+  background: url("icon/screen-rotate-lock.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+  /* opacity: 0.3; */
+}
+.orientation-active{
+  background:url("icon/screen-rotate.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+.sound-btn-wrapper{
+  float: right;
+  position: relative;
+  margin: 0 10px;
+  width: 45px;
+  top: 5px;
+}
+.sound-btn{
+  background:url("icon/sound.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.sound-btn{
+  width: 45px;
+  height:45px;
+}
+.mute-active{
+  background:url("icon/mute-active.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.sound-controls{
+  position:absolute;
+  bottom: 45px;
+  left: 5px;
+  height: 110px;
+  width:30px;
+  background:rgba(0,0,0,.8);
+  border-radius:6px;
+  text-align: center;
+}
+.sound-slider-bar{
+  position:absolute;
+  display:inline-block;
+  bottom: 15px;
+  width:2px;
+  height:70px;
+  background:#fff;
+  border-radius:1px;
+}
+.sound-slider-btn{
+  position:absolute;
+  right:-3px;
+  width:8px;
+  height:8px;
+  border-radius:4px;
+  background:#ccc;
+  bottom: -4px;
+  cursor: pointer;
+}
+.sound-num{
+  position: absolute;
+  font-family: Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  display: inline-block;
+  top: 7px;
+  left: 0;
+  width: 30px;
+  color: #fff;
+}
+.dbscreen-btn{
+  background:url("icon/single-screen.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.dbscreen-active{
+  background:url("icon/double-screen.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+  opacity:1;
+}
+
+.fullscreen-btn{
+  background: url("icon/fullscreen.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+  /* right: 9px; */
+}
+.exit-fullscreen{
+  background: url("icon/exitFullScreen.svg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+
+.overlay{
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /*z-index: 100000000;*/
+}
+.show-overlay{
+  opacity: 1;
+  transition:opacity 1s ease-in .5s;
+}
+.hide-overlay{
+  opacity:0;
+}
+.loading{
+  background-image:url("icon/hourglass.svg");
+  background-size:10%;
+  background-repeat:no-repeat;
+  background-position:center center;
+}
+.w-resize-cursor{
+  cursor: w-resize !important;
+}
+.default-cursor{
+  cursor: default;
+}
+.pointer-cursor{
+  cursor: pointer;
+}
+.hide-toolbar{
+  bottom: -60px !important;
+  transition: bottom 1s cubic-bezier(0, 0, 0.1, 1.1) .5s;
+}
+.show-toolbar{
+  bottom: 0 !important;
+  transition: bottom 1s cubic-bezier(0, 0, 0.1, 1.1) .5s;
+}
+.show-cursor{
+  cursor: default;
+}
+.hide-cursor{
+  cursor: none;
+}
+.hide-sound-controls{
+  transform: scaleX(0) !important;
+  transition: transform .2s ease-in .4s;
+}
+.show-sound-controls{
+  transform: scaleX(1) !important;
+  transition:transform .2s ease-in .4s;
+}
+canvas{
+  background-color: #1c1b1b;
+}
+/*  */
+video{
+  /*display: none !important;*/
+  width:100%;
+  height:100%;
+}
+.opacity0{
+  opacity:0;
+}
+.hidden{
+  display:none;
+}
+/*
+ * Helper CSS Style,for Chrome just for fullscreen
+ */
+:-webkit-full-screen:not(:root) {
+  width: 100% !important;
+  height: 100% !important;
+}
+:-webkit-full-screen #video-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+:-webkit-full-screen video{
+  width: 100%;
+  height: 100%;
+}
+:-webkit-full-screen #toolbar{
+  width: 100% !important;
+}
+:-webkit-full-screen canvas{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/**
+ *  Helper CSS Style, for MS IE just for fullscreen
+ */
+
+ :-ms-fullscreen:not(:root) {
+   width: 100% !important;
+   height: 100% !important;
+ }
+ :-ms-fullscreen #video-container {
+   width: 100% !important;
+   height: 100% !important;
+ }
+ :-ms-fullscreen video{
+   width: 100%;
+   height: 100%;
+ }
+:-ms-fullscreen #toolbar{
+   width: 100%;
+ }
+:-ms-fullscreen canvas{
+   width: 100% !important;
+   height: 100% !important;
+ }
+
+ 
+#video-container:fullscreen{
+  width: 100% !important;
+  height: 100% !important;
+}
+video:fullscreen{
+  width: 100%;
+  height: 100%;
+}
+#toolbar:fullscreen{
+  width: 100%;
+}
+canvas:fullscreen{
+  width: 100% !important;
+  height: 100% !important;
+}
